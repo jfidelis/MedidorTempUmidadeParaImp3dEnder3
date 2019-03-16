@@ -27,17 +27,6 @@
 #define ENABLE_HIGH P1OUT = P1OUT | BIT6	// define Enable high signal
 #define ENABLE_LOW P1OUT = P1OUT & (~BIT6)	// define Enable Low signal
 
-unsigned int i;
-unsigned int j;
-
-// void delay(unsigned int k)
-// {
-// 	for(j=0;j<=k;j++)
-// 	{
-// 		for(i=0;i<100;i++);
-// 	}
-// }
-
 void data_write(void)
 {
 	ENABLE_HIGH;
@@ -52,6 +41,7 @@ void data_read(void)
 	ENABLE_HIGH;
 }
 
+
 void check_busy(void)
 {
 	P1DIR &= ~(BIT3); 	// make P1.3 as input
@@ -61,6 +51,7 @@ void check_busy(void)
 	}
 	P1DIR |= BIT3; // make P1.3 as output
 }
+
 
 void send_command(unsigned char cmd)
 {
